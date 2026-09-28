@@ -81,6 +81,20 @@ footer{padding-block:40px;border-top:1px solid var(--line);font-family:var(--mon
 .piece p{color:var(--dust);font-size:15px;margin:4px 0 0}
 .chapters{display:grid;gap:36px 24px;grid-template-columns:repeat(auto-fill,minmax(min(100%,420px),1fr))}
 .chapters .piece p{font-size:16px}
+
+/* secciones plegables (solo con JS; sin JS se ve todo abierto) */
+.fold:not(.open) .work-body{display:none}
+.fold:not(.open) .work-head .more-text{display:none}
+.fold:not(.open) .work-head .lead{display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}
+.fold.open .strip{display:none}
+.strip{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;cursor:pointer}
+.strip span{position:relative;aspect-ratio:16/9;background:var(--ash-2);overflow:hidden}
+.strip img{width:100%;height:100%;object-fit:cover;filter:grayscale(.35);transition:filter .4s ease}
+.strip:hover img{filter:none}
+.strip .n{position:absolute;inset:0;display:grid;place-items:center;background:color-mix(in srgb,var(--ash) 62%,transparent);font-family:var(--mono);font-size:15px;letter-spacing:.08em}
+.toggle{justify-self:start;background:none;border:1px solid var(--lunar);color:var(--lunar);font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;padding:11px 18px;cursor:pointer;transition:background .2s,color .2s}
+.toggle:hover{background:var(--lunar);color:var(--ash)}
+.toggle:focus-visible{outline:2px solid var(--lunar);outline-offset:3px}
 </style>
 </head><body>
 
@@ -99,11 +113,11 @@ footer{padding-block:40px;border-top:1px solid var(--line);font-family:var(--mon
 <section id="artworks">
   <h2 class="label"><span>Artworks</span><span>2020—2023</span></h2>
   <div class="index">
-    <a class="tile" href="#ewl"><div class="thumb"><img src="img/cover_enjoy-whats-left.jpg" alt="Enjoy What's Left"></div><div class="meta"><b>Enjoy What's Left</b><span>2023</span></div></a>
-    <a class="tile" href="#virtual-landscapes"><div class="thumb"><img src="img/cover_virtual-landscapes.gif" alt="Virtual Landscapes"></div><div class="meta"><b>Virtual Landscapes</b><span>2022</span></div></a>
-    <a class="tile" href="#enigmatic-events"><div class="thumb"><img src="img/cover_enigmatic-events.gif" alt="Enigmatic Events"></div><div class="meta"><b>Enigmatic Events</b><span>2021</span></div></a>
-    <a class="tile" href="#prequel"><div class="thumb"><img src="img/p_ewl-prequel_01.jpg" alt="Enjoy What's Left [The Prequel]"></div><div class="meta"><b>EWL [The Prequel]</b><span>2021</span></div></a>
-    <a class="tile" href="#ruins"><div class="thumb"><img src="img/p_ruins_04.jpg" alt="Ruins"></div><div class="meta"><b>Ruins</b><span>2020</span></div></a>
+    <a class="tile" href="#ewl"><div class="thumb"><img loading="lazy" src="img/cover_enjoy-whats-left.jpg" alt="Enjoy What's Left"></div><div class="meta"><b>Enjoy What's Left</b><span>2023</span></div></a>
+    <a class="tile" href="#virtual-landscapes"><div class="thumb"><img loading="lazy" src="img/cover_virtual-landscapes.gif" alt="Virtual Landscapes"></div><div class="meta"><b>Virtual Landscapes</b><span>2022</span></div></a>
+    <a class="tile" href="#enigmatic-events"><div class="thumb"><img loading="lazy" src="img/cover_enigmatic-events.gif" alt="Enigmatic Events"></div><div class="meta"><b>Enigmatic Events</b><span>2021</span></div></a>
+    <a class="tile" href="#prequel"><div class="thumb"><img loading="lazy" src="img/p_ewl-prequel_01.jpg" alt="Enjoy What's Left [The Prequel]"></div><div class="meta"><b>EWL [The Prequel]</b><span>2021</span></div></a>
+    <a class="tile" href="#ruins"><div class="thumb"><img loading="lazy" src="img/p_ruins_04.jpg" alt="Ruins"></div><div class="meta"><b>Ruins</b><span>2020</span></div></a>
   </div>
 </section>
 
@@ -125,7 +139,7 @@ footer{padding-block:40px;border-top:1px solid var(--line);font-family:var(--mon
     <div><p>With the objective to uncover the hidden aspects of everyday life, these works seek to showcase the subjective and intertwined nature of time through the use of technology. The virtual landscapes depict a new reality where everything is possible, whether based on real places or entirely imagined ones. The ongoing project explores the coexistence of past, present, and future in a frozen, enigmatic moment that invites reflection.</p></div>
   </div>
   <div class="pieces-v">
-<figure class="piece"><img src="img/virtual-landscapes_01.jpg" alt="Vista de Ventana"><figcaption><h3>"Vista de Ventana"</h3><p>Mirando por la ventana, junto a vos, congeló este instante para siempre. The coast of Nahuel Huapi lake, peaceful yet post-apocalyptic. Who is the observer, and who is being observed? With Luxi.</p></figcaption></figure>
+<figure class="piece"><img loading="lazy" src="img/virtual-landscapes_01.jpg" alt="Vista de Ventana"><figcaption><h3>"Vista de Ventana"</h3><p>Mirando por la ventana, junto a vos, congeló este instante para siempre. The coast of Nahuel Huapi lake, peaceful yet post-apocalyptic. Who is the observer, and who is being observed? With Luxi.</p></figcaption></figure>
 <figure class="piece"><video controls playsinline preload="none" poster="img/p_virtual-landscapes_v1.jpg" src="video/virtual-landscapes_v1.mp4"></video><figcaption><h3>"Gibraltar"</h3><p>In his last journey, Ulises traverses the Columns of Hercules, venturing into what used to be the end of the world.</p></figcaption></figure><figure class="piece"><video controls playsinline preload="none" poster="img/p_virtual-landscapes_v2.jpg" src="video/virtual-landscapes_v2.mp4"></video><figcaption><h3>"Almagest"</h3><p>Tolomeo looked towards the unknown under the light of the distant stars.</p></figcaption></figure><figure class="piece"><video controls playsinline preload="none" poster="img/p_virtual-landscapes_v3.jpg" src="video/virtual-landscapes_v3.mp4"></video><figcaption><h3>"Dubious Coincidences"</h3><p>They will look in vain for a rational definition, but we are no more... With Falko.</p></figcaption></figure><figure class="piece"><video controls playsinline preload="none" poster="img/p_virtual-landscapes_v4.jpg" src="video/virtual-landscapes_v4.mp4"></video><figcaption><h3>"Chained Freedom"</h3><p>The freedom that I keep has me chained.</p></figcaption></figure></div>
 </article>
 
@@ -164,8 +178,8 @@ footer{padding-block:40px;border-top:1px solid var(--line);font-family:var(--mon
     <p><a class="watch" href="https://www.youtube.com/watch?v=1SWuKs4yMGA" target="_blank" rel="noopener">Watch on YouTube ↗</a></p></div>
   </div>
   <div class="gallery">
-    <img class="wide" src="img/not-built-in-a-day_03.jpg" alt="Not Built in a Day, installation view">
-    <img src="img/not-built-in-a-day_02.jpg" alt="Not Built in a Day, Okytomo at Maison Bosi"><img src="img/not-built-in-a-day_04.jpg" alt="Not Built in a Day">
+    <img loading="lazy" class="wide" src="img/not-built-in-a-day_03.jpg" alt="Not Built in a Day, installation view">
+    <img loading="lazy" src="img/not-built-in-a-day_02.jpg" alt="Not Built in a Day, Okytomo at Maison Bosi"><img loading="lazy" src="img/not-built-in-a-day_04.jpg" alt="Not Built in a Day">
   </div>
 </article>
 
@@ -175,10 +189,10 @@ footer{padding-block:40px;border-top:1px solid var(--line);font-family:var(--mon
     <div><p>In the land of risk, those with nothing strive for something. All is intensely enjoyed and greatly suffered, as nothing is guaranteed. Memories of scarcity build a monumental and fragmented image with available pieces. There are also many ghosts fed with fear, hate, and grief, along with romance. The exhibition explores the relationship between reality and its fictionalized construction, reflecting on the burden imposed by the media. The pieces are on the verge of the broken, losing their form to inhabit the ruins. An economic skeleton that sustains and shapes these narratives is always present.</p></div>
   </div>
   <div class="gallery">
-    <img class="wide" src="img/riesgo-pais_01.jpg" alt="Riesgo País">
-    <img src="img/riesgo-pais_02.jpg" alt="Riesgo País"><img src="img/riesgo-pais_03.jpg" alt="Riesgo País">
-    <img src="img/riesgo-pais_05.jpg" alt="Riesgo País"><img src="img/riesgo-pais_06.jpg" alt="Riesgo País">
-    <img src="img/riesgo-pais_07.jpg" alt="Riesgo País"><img src="img/riesgo-pais_08.jpg" alt="Riesgo País">
+    <img loading="lazy" class="wide" src="img/riesgo-pais_01.jpg" alt="Riesgo País">
+    <img loading="lazy" src="img/riesgo-pais_02.jpg" alt="Riesgo País"><img loading="lazy" src="img/riesgo-pais_03.jpg" alt="Riesgo País">
+    <img loading="lazy" src="img/riesgo-pais_05.jpg" alt="Riesgo País"><img loading="lazy" src="img/riesgo-pais_06.jpg" alt="Riesgo País">
+    <img loading="lazy" src="img/riesgo-pais_07.jpg" alt="Riesgo País"><img loading="lazy" src="img/riesgo-pais_08.jpg" alt="Riesgo País">
   </div>
 </article>
 
@@ -189,8 +203,8 @@ footer{padding-block:40px;border-top:1px solid var(--line);font-family:var(--mon
   </div>
   <div class="gallery">
     <video class="wide" controls playsinline preload="none" poster="img/p_no-existe-tierra_video.jpg" src="video/no-existe-tierra_video.mp4"></video>
-    <img src="img/no-existe-tierra_02.jpg" alt="No existe tierra más allá"><img src="img/no-existe-tierra_03.jpg" alt="No existe tierra más allá">
-    <img src="img/no-existe-tierra_01.jpg" alt="No existe tierra más allá"><img src="img/no-existe-tierra_04.jpg" alt="No existe tierra más allá">
+    <img loading="lazy" src="img/no-existe-tierra_02.jpg" alt="No existe tierra más allá"><img loading="lazy" src="img/no-existe-tierra_03.jpg" alt="No existe tierra más allá">
+    <img loading="lazy" src="img/no-existe-tierra_01.jpg" alt="No existe tierra más allá"><img loading="lazy" src="img/no-existe-tierra_04.jpg" alt="No existe tierra más allá">
   </div>
 </article>
 
@@ -201,14 +215,14 @@ footer{padding-block:40px;border-top:1px solid var(--line);font-family:var(--mon
   </div>
   <div class="gallery">
     <video class="wide" controls playsinline preload="none" poster="img/p_caos_video.jpg" src="video/caos_video.mp4"></video>
-    <img class="wide" src="img/caos_02.jpg" alt="CAOS">
-    <img src="img/caos_01.jpg" alt="CAOS"><img src="img/caos_04.jpg" alt="CAOS">
-    <img src="img/caos_03.jpg" alt="CAOS"><img src="img/caos_05.jpg" alt="CAOS">
+    <img loading="lazy" class="wide" src="img/caos_02.jpg" alt="CAOS">
+    <img loading="lazy" src="img/caos_01.jpg" alt="CAOS"><img loading="lazy" src="img/caos_04.jpg" alt="CAOS">
+    <img loading="lazy" src="img/caos_03.jpg" alt="CAOS"><img loading="lazy" src="img/caos_05.jpg" alt="CAOS">
   </div>
 </article>
 
 <section class="about" id="about">
-  <img src="img/about_avatar.gif" alt="Okytomo" style="max-width:360px;width:100%">
+  <img loading="lazy" src="img/about_avatar.gif" alt="Okytomo" style="max-width:360px;width:100%">
   <div>
     <h2 class="label"><span>About</span><span>Okytomo</span></h2>
     <p>With a background in photography, filmmaking and digital media, Okytomo's work invites us to explore fantastical worlds derived from streams of thought, brought to life through mixed digital media.</p>
@@ -223,5 +237,80 @@ footer{padding-block:40px;border-top:1px solid var(--line);font-family:var(--mon
 </section>
 </main>
 <footer><span>© Okytomo</span><span>Buenos Aires, AR</span></footer>
+
+<script>
+// Cada proyecto arranca plegado: título, texto corto, tira de miniaturas y un botón que despliega las obras.
+document.querySelectorAll('article.work').forEach(function (work) {
+  var body = work.querySelector('.work-head').nextElementSibling;
+  var items = body.matches('.gallery') ? [].slice.call(body.children) : [].slice.call(body.querySelectorAll('.piece'));
+  var noun = body.matches('.chapters') ? 'chapters' : body.matches('.gallery') ? 'images' : 'works';
+  var label = 'View ' + (items.length > 1 ? 'all ' + items.length + ' ' : '') + noun + ' +';
+
+  body.classList.add('work-body');
+  body.id = body.id || work.id + '-body';
+
+  var paras = work.querySelectorAll('.work-head > div:last-child > p');
+  paras.forEach(function (p, i) {
+    if (i === 0) p.classList.add('lead');
+    else if (!p.querySelector('.watch')) p.classList.add('more-text');
+  });
+
+  var strip = document.createElement('div');
+  strip.className = 'strip';
+  strip.setAttribute('aria-hidden', 'true');
+  items.slice(0, 4).forEach(function (el, i) {
+    var media = el.matches('img, video') ? el : el.querySelector('img, video');
+    var cell = document.createElement('span');
+    var img = document.createElement('img');
+    img.src = media.poster || media.getAttribute('src');
+    img.alt = '';
+    img.loading = 'lazy';
+    cell.appendChild(img);
+    if (i === 3 && items.length > 4) {
+      var n = document.createElement('b');
+      n.className = 'n';
+      n.textContent = '+' + (items.length - 3);
+      cell.appendChild(n);
+    }
+    strip.appendChild(cell);
+  });
+
+  var btn = document.createElement('button');
+  btn.type = 'button';
+  btn.className = 'toggle';
+  btn.setAttribute('aria-controls', body.id);
+
+  function set(open) {
+    work.classList.toggle('open', open);
+    btn.textContent = open ? 'Close –' : label;
+    btn.setAttribute('aria-expanded', open);
+    if (!open) {
+      work.querySelectorAll('video').forEach(function (v) { v.pause(); });
+      if (work.getBoundingClientRect().top < 0) work.scrollIntoView();
+    }
+  }
+  work.setOpen = set;
+  btn.addEventListener('click', function () { set(!work.classList.contains('open')); });
+  strip.addEventListener('click', function () { set(true); });
+
+  body.after(strip, btn);
+  work.classList.add('fold');
+  set(false);
+});
+
+// Llegar a un proyecto desde el índice (o con #id en la URL) lo abre.
+function openFromHash() {
+  var el = location.hash && document.getElementById(location.hash.slice(1));
+  if (el && el.setOpen) el.setOpen(true);
+}
+window.addEventListener('hashchange', openFromHash);
+document.querySelectorAll('a[href^="#"]').forEach(function (a) {
+  a.addEventListener('click', function () {
+    var el = document.getElementById(a.getAttribute('href').slice(1));
+    if (el && el.setOpen) el.setOpen(true);
+  });
+});
+openFromHash();
+</script>
 
 </body></html>
