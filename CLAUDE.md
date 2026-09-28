@@ -10,7 +10,7 @@ Sitio estático (HTML + CSS, sin build) del portfolio de artista de Okytomo (Oct
 - `.claude/serve.ps1` — servidor estático local (http://localhost:8080) para previsualizar; no hay Python/Node en esta máquina.
 
 ## Deploy
-Gratis en Netlify: arrastrar la carpeta `site/` a app.netlify.com/drop (o conectar el repo con publish dir `site`). Ojo: `site/` pesa ~390 MB por los videos.
+GitHub Pages: https://okytomo.github.io (repo público `okytomo/okytomo.github.io`). Cada push a `main` publica la carpeta `site/` vía `.github/workflows/pages.yml` (Pages en modo "GitHub Actions", no "deploy from branch"). `originales/` está en `.gitignore`: queda solo en local. Límite de GitHub: 100 MB por archivo (el video más grande pesa ~48 MB).
 
 ## Pendientes
 - Sin video recuperado (quedaron fuera de la web): "Mar rojo", "La voz del viento" (Virtual Landscapes) y "Pursuit" (Ruins).
