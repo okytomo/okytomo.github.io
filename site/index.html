@@ -50,10 +50,11 @@ nav a:hover{color:var(--bone)}
 .work .yr{font-family:var(--mono);font-size:13px;letter-spacing:.14em;color:var(--lunar);display:block;margin-bottom:12px}
 .work .venue{font-family:var(--mono);font-size:13px;color:var(--dust);display:block;margin-top:10px}
 .work p{margin:0 0 1em;max-width:65ch}
-.gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,360px),1fr));gap:16px}
+.gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,360px),1fr));gap:16px;align-items:center}
 .gallery video{width:100%;max-width:100%;background:var(--ash-2)}
-.gallery img{width:100%;background:var(--ash-2)}
-.gallery .wide{grid-column:1/-1}
+/* que cada imagen entre entera en la pantalla, sin recortar */
+.gallery img{width:auto;max-width:100%;max-height:60vh;justify-self:center;background:var(--ash-2)}
+.gallery .wide{grid-column:1/-1;max-height:80vh}
 .pieces{list-style:none;padding:0;margin:0;display:grid;gap:22px;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr))}
 .pieces li{border-top:1px solid var(--line);padding-top:12px}
 .pieces h3{font-family:var(--body);font-style:italic;font-weight:400;font-size:21px;margin:0 0 6px}
@@ -163,8 +164,8 @@ footer{padding-block:40px;border-top:1px solid var(--line);font-family:var(--mon
     <p><a class="watch" href="https://www.youtube.com/watch?v=1SWuKs4yMGA" target="_blank" rel="noopener">Watch on YouTube ↗</a></p></div>
   </div>
   <div class="gallery">
-    <img class="wide" src="img/not-built-in-a-day_02.jpg" alt="Not Built in a Day, installation view">
-    <img src="img/not-built-in-a-day_03.jpg" alt="Not Built in a Day"><img src="img/not-built-in-a-day_04.jpg" alt="Not Built in a Day">
+    <img class="wide" src="img/not-built-in-a-day_03.jpg" alt="Not Built in a Day, installation view">
+    <img src="img/not-built-in-a-day_02.jpg" alt="Not Built in a Day, Okytomo at Maison Bosi"><img src="img/not-built-in-a-day_04.jpg" alt="Not Built in a Day">
   </div>
 </article>
 
