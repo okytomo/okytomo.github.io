@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Okytomo</title>
+<meta name="description" content="Okytomo — artista digital, Buenos Aires. Artworks, exhibitions, about.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Michroma&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  color-scheme:dark;
+  --ash:#0c0d0f; --ash-2:#15171a; --bone:#e6e1d6; --dust:#8a8b90; --line:#26282c; --lunar:#86b0cf;
+  --display:"Michroma","Eurostile","Arial Black",sans-serif;
+  --body:"Newsreader",Georgia,"Times New Roman",serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{background:var(--ash);color:var(--bone);font-family:var(--body);font-size:18px;line-height:1.6;padding-inline:clamp(16px,4vw,56px);margin:0}
+a{color:inherit}
+a:focus-visible,summary:focus-visible{outline:2px solid var(--lunar);outline-offset:3px}
+img{display:block;max-width:100%;height:auto}
+
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:color-mix(in srgb,var(--ash) 88%,transparent);backdrop-filter:blur(8px);display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px 32px;padding-block:18px;border-bottom:1px solid var(--line)}
+.mark{font-family:var(--display);font-size:15px;letter-spacing:.32em;text-decoration:none}
+nav{display:flex;gap:22px;flex-wrap:wrap}
+nav a{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;color:var(--dust)}
+nav a:hover{color:var(--bone)}
+
+.hero{padding-block:clamp(56px,10vw,120px) clamp(40px,6vw,72px);display:grid;gap:28px}
+.hero h1{font-family:var(--display);font-weight:400;font-size:clamp(40px,11vw,148px);line-height:.95;letter-spacing:.04em;margin:0}
+.hero p{max-width:58ch;margin:0;color:var(--dust);font-size:clamp(18px,2vw,21px)}
+.coords{font-family:var(--mono);font-size:12px;letter-spacing:.12em;color:var(--dust);text-transform:uppercase}
+
+.label{font-family:var(--mono);font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--dust);margin:0 0 20px;display:flex;justify-content:space-between;border-top:1px solid var(--line);padding-top:14px}
+
+.index{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr));gap:36px 24px;padding-bottom:96px}
+.tile{text-decoration:none;display:grid;gap:12px}
+.thumb{aspect-ratio:1.28;background:var(--ash-2);overflow:hidden;display:grid;place-items:center;max-width:100%}
+.thumb img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease,filter .6s ease;filter:grayscale(.35)}
+.tile:hover .thumb img{transform:scale(1.03);filter:none}
+.thumb .t{font-family:var(--display);font-size:clamp(20px,3vw,28px);letter-spacing:.06em;text-align:center;padding:24px;line-height:1.2;color:var(--dust)}
+.tile .meta{display:flex;justify-content:space-between;gap:12px;font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase}
+.tile .meta b{font-weight:500;color:var(--bone)}
+.tile .meta span{color:var(--dust)}
+
+.work{padding-block:72px;border-top:1px solid var(--line);display:grid;gap:36px}
+.work-head{display:grid;grid-template-columns:minmax(0,1fr);gap:18px}
+@media (min-width:900px){.work-head{grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:56px}}
+.work h2{font-family:var(--display);font-weight:400;font-size:clamp(26px,4vw,46px);line-height:1.1;letter-spacing:.03em;margin:0;text-wrap:balance}
+.work .yr{font-family:var(--mono);font-size:13px;letter-spacing:.14em;color:var(--lunar);display:block;margin-bottom:12px}
+.work .venue{font-family:var(--mono);font-size:13px;color:var(--dust);display:block;margin-top:10px}
+.work p{margin:0 0 1em;max-width:65ch}
+.gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,360px),1fr));gap:16px}
+.gallery video{width:100%;max-width:100%;background:var(--ash-2)}
+.gallery img{width:100%;background:var(--ash-2)}
+.gallery .wide{grid-column:1/-1}
+.pieces{list-style:none;padding:0;margin:0;display:grid;gap:22px;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr))}
+.pieces li{border-top:1px solid var(--line);padding-top:12px}
+.pieces h3{font-family:var(--body);font-style:italic;font-weight:400;font-size:21px;margin:0 0 6px}
+.pieces p{color:var(--dust);font-size:16px;margin:0}
+details{border-top:1px solid var(--line)}
+details:last-of-type{border-bottom:1px solid var(--line)}
+summary{cursor:pointer;padding-block:14px;font-family:var(--mono);font-size:13px;letter-spacing:.1em;text-transform:uppercase;list-style:none;display:flex;justify-content:space-between}
+summary::after{content:"+";color:var(--lunar)}
+details[open] summary::after{content:"–"}
+details p{color:var(--dust);font-size:17px}
+.watch{font-family:var(--mono);font-size:13px;letter-spacing:.08em;color:var(--lunar);text-decoration:none;border-bottom:1px solid currentColor}
+
+.about{display:grid;gap:40px;padding-block:72px;border-top:1px solid var(--line)}
+@media (min-width:900px){.about{grid-template-columns:minmax(0,4fr) minmax(0,8fr);gap:56px}}
+.about p{font-size:clamp(19px,2.2vw,24px);line-height:1.5;margin:0 0 1em;max-width:40ch}
+.contact{display:grid;gap:10px;font-family:var(--mono);font-size:14px}
+.contact a{text-decoration:none;color:var(--dust)}.contact a:hover{color:var(--bone)}
+.contact .mail{color:var(--bone);font-size:clamp(18px,2.4vw,24px);user-select:all}
+footer{padding-block:40px;border-top:1px solid var(--line);font-family:var(--mono);font-size:12px;color:var(--dust);letter-spacing:.1em;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.pieces-v{display:grid;gap:28px 20px;grid-template-columns:repeat(auto-fill,minmax(min(100%,280px),1fr));align-items:start}
+.piece{margin:0;display:grid;gap:10px}
+.piece video{width:100%;max-width:100%;background:var(--ash-2);display:block}
+.piece h3{font-family:var(--body);font-style:italic;font-weight:400;font-size:20px;margin:0}
+.piece p{color:var(--dust);font-size:15px;margin:4px 0 0}
+.chapters{display:grid;gap:36px 24px;grid-template-columns:repeat(auto-fill,minmax(min(100%,420px),1fr))}
+.chapters .piece p{font-size:16px}
+</style>
+</head><body>
+
+<header>
+  <a class="mark" href="#top">OKYTOMO</a>
+  <nav><a href="#artworks">Artworks</a><a href="#exhibitions">Exhibitions</a><a href="#about">About</a><a href="#contact">Contact</a></nav>
+</header>
+
+<main id="top">
+<section class="hero">
+  <span class="coords">34°36′S 58°22′W · Buenos Aires</span>
+  <h1>OKYTOMO</h1>
+  <p>Virtual landscapes, ruins and near futures. 3D, photogrammetry and mixed digital media, influenced by the surreal and by science fiction.</p>
+</section>
+
+<section id="artworks">
+  <h2 class="label"><span>Artworks</span><span>2020—2023</span></h2>
+  <div class="index">
+    <a class="tile" href="#ewl"><div class="thumb"><img src="img/cover_enjoy-whats-left.jpg" alt="Enjoy What's Left"></div><div class="meta"><b>Enjoy What's Left</b><span>2023</span></div></a>
+    <a class="tile" href="#virtual-landscapes"><div class="thumb"><img src="img/cover_virtual-landscapes.gif" alt="Virtual Landscapes"></div><div class="meta"><b>Virtual Landscapes</b><span>2022</span></div></a>
+    <a class="tile" href="#enigmatic-events"><div class="thumb"><img src="img/cover_enigmatic-events.gif" alt="Enigmatic Events"></div><div class="meta"><b>Enigmatic Events</b><span>2021</span></div></a>
+    <a class="tile" href="#prequel"><div class="thumb"><img src="img/p_ewl-prequel_01.jpg" alt="Enjoy What's Left [The Prequel]"></div><div class="meta"><b>EWL [The Prequel]</b><span>2021</span></div></a>
+    <a class="tile" href="#ruins"><div class="thumb"><img src="img/p_ruins_04.jpg" alt="Ruins"></div><div class="meta"><b>Ruins</b><span>2020</span></div></a>
+  </div>
+</section>
+
+<article class="work" id="ewl">
+  <div class="work-head">
+    <div><span class="yr">2023</span><h2>Enjoy What's Left</h2></div>
+    <div>
+      <p>'Enjoy What's Left' is an audiovisual composition where we aim to combine creation processes driven by intuition, science fiction imagery, and possible near futures. The story is set in a world adjacent to the real world, where mysterious entities visit the earth to study it and exert a form of energy-magic power, leaving their mark on it.</p>
+      <p>The plot combines epic storytelling imagery and abstract arguments, thanks to the creative freedom that 3D design allows. Through various rhythms and emotional resources, it projects a recollection of events to come for our civilization, based on emotions, strangeness, and spectacle, abandoning the traditional rationalization of history.</p>
+      <p><a class="watch" href="https://www.youtube.com/watch?v=vTx5ygYumNI" target="_blank" rel="noopener">Watch on YouTube ↗</a></p>
+    </div>
+  </div>
+  <div class="chapters"><figure class="piece"><video controls playsinline preload="none" poster="img/p_ewl_ch1.jpg" src="video/ewl_ch1.mp4"></video><figcaption><h3>1. Arrival</h3><p>A new shift starts in the control room. The oracle stands on a magnetic vessel. Heat permeates the atmosphere. The alarms are about to go off. All electronics are stuck. They will soon be one with the silent cave. Cables send their last errands across the sea and into the sky. The first sphere runs its first command. A totem of light and exhilaration. The stone grows cold. To catch a glimpse of the arrival.</p></figcaption></figure><figure class="piece"><video controls playsinline preload="none" poster="img/p_ewl_ch2.jpg" src="video/ewl_ch2.mp4"></video><figcaption><h3>2. Alchemy</h3><p>The static field is replaced with a light breeze. Fibers become branches of the forest's new spring. Mountains are crowned with green. New energy within the absence of extraction. We have marked our machines with their words and arranged new compounds. The inside of a bolt that had nature's own acceleration. The new alphabet of infinity.</p></figcaption></figure><figure class="piece"><video controls playsinline preload="none" poster="img/p_ewl_ch3.jpg" src="video/ewl_ch3.mp4"></video><figcaption><h3>3. Waste</h3><p>Engines start in the midst of a storm. There is new behaviour in the frontier. We seek to communicate our needs and for them to be understood. The birth of a misunderstanding. We are accused of circling the sun. Debris sink into the ocean as it becomes an expanding diorama. The temperature spirals down. Again the word is spread. This time not to be spoken. It bleeds like a disease on a crystal shell. It cracks beneath our ships as we stretch our hands to no avail.</p></figcaption></figure><figure class="piece"><video controls playsinline preload="none" poster="img/p_ewl_ch4.jpg" src="video/ewl_ch4.mp4"></video><figcaption><h3>4. Pearly Gates</h3><p>Resistance strikes. Orbiting dead space. A single shot to reverse the order of nature. We give our backs to the curvature of the earth and set the plan in motion. An artifact renders it motionless, a window of opportunity. Synchronicity is broken. The needle punctures the crust of the third sphere making it sick. A mutant to their kind with an inseminated marrow bone. To die by our own hand rather than succumb to uncertainty.</p></figcaption></figure><figure class="piece"><video controls playsinline preload="none" poster="img/p_ewl_ch5.jpg" src="video/ewl_ch5.mp4"></video><figcaption><h3>5. White Flag</h3><p>Set on a spike in a reservoir is one of the oracles. Walls have grown tall. We are scraping the bottom of the barrel. Ripples of contaminated wind erode our windmills. Electric towers and hollow trees. Still standing but surrendered. It takes one last drop for the skeleton to crumble. The spear has now cracked it open. The fall breaks it in half. Two circular windows are opened to empty spaces. The prison where light had escaped from is now an empty vessel made of stone.</p></figcaption></figure><figure class="piece"><video controls playsinline preload="none" poster="img/p_ewl_ch6.jpg" src="video/ewl_ch6.mp4"></video><figcaption><h3>6. Lucid Beach</h3><p>The red ocean is cemented on the beach. The lighthouse means refuge. Spread under the earth's crust. The population is unconsolable. Frozen winds carry radiation. Without high or low tides time stands still. The beach becomes a slaughterhouse. Food is scavenged. Flesh decays. Trapped on an island with poisoned water.</p></figcaption></figure><figure class="piece"><video controls playsinline preload="none" poster="img/p_ewl_ch7.jpg" src="video/ewl_ch7.mp4"></video><figcaption><h3>7. Giants</h3><p>It has long started. Morphing passes unnoticed before our eyes. The fever dream is decomposing. Rotten bodies are robbed out of their gifts. There is one last ride to the train station. Dunes scrape the horizon as the wagon reaches the end of the line. Rubble over the desert. Still pumping the carbon print. The only true belief is the spine we carry on our backs.</p></figcaption></figure><figure class="piece"><video controls playsinline preload="none" poster="img/p_ewl_ch8.jpg" src="video/ewl_ch8.mp4"></video><figcaption><h3>8. New Born</h3><p>Sand covers the tracks. The city disappears under the sand. Dust is brought in through the broken windows. One flew over the ghost station. The last remaining shadow of a skeleton. The forgotten ruins of our dreams. The laboratory holds on. Machines are surrounded by static puddles. Mercury has bled through the cracks and is now dripping. Dawn in the temple of silence. The last sphere trembles as it shines one last time. The ring's gravity center breaks and falls. Still waiting for completion. The code is interrupted and the work is unmade. The message rolls over and waits till dusk.</p></figcaption></figure></div>
+</article>
+
+<article class="work" id="virtual-landscapes">
+  <div class="work-head">
+    <div><span class="yr">2022</span><h2>Virtual Landscapes</h2></div>
+    <div><p>With the objective to uncover the hidden aspects of everyday life, these works seek to showcase the subjective and intertwined nature of time through the use of technology. The virtual landscapes depict a new reality where everything is possible, whether based on real places or entirely imagined ones. The ongoing project explores the coexistence of past, present, and future in a frozen, enigmatic moment that invites reflection.</p></div>
+  </div>
+  <div class="pieces-v">
+<figure class="piece"><img src="img/virtual-landscapes_01.jpg" alt="Vista de Ventana"><figcaption><h3>"Vista de Ventana"</h3><p>Mirando por la ventana, junto a vos, congeló este instante para siempre. The coast of Nahuel Huapi lake, peaceful yet post-apocalyptic. Who is the observer, and who is being observed? With Luxi.</p></figcaption></figure>
+<figure class="piece"><video controls playsinline preload="none" poster="img/p_virtual-landscapes_v1.jpg" src="video/virtual-landscapes_v1.mp4"></video><figcaption><h3>"Gibraltar"</h3><p>In his last journey, Ulises traverses the Columns of Hercules, venturing into what used to be the end of the world.</p></figcaption></figure><figure class="piece"><video controls playsinline preload="none" poster="img/p_virtual-landscapes_v2.jpg" src="video/virtual-landscapes_v2.mp4"></video><figcaption><h3>"Almagest"</h3><p>Tolomeo looked towards the unknown under the light of the distant stars.</p></figcaption></figure><figure class="piece"><video controls playsinline preload="none" poster="img/p_virtual-landscapes_v3.jpg" src="video/virtual-landscapes_v3.mp4"></video><figcaption><h3>"Dubious Coincidences"</h3><p>They will look in vain for a rational definition, but we are no more... With Falko.</p></figcaption></figure><figure class="piece"><video controls playsinline preload="none" poster="img/p_virtual-landscapes_v4.jpg" src="video/virtual-landscapes_v4.mp4"></video><figcaption><h3>"Chained Freedom"</h3><p>The freedom that I keep has me chained.</p></figcaption></figure></div>
+</article>
+
+<article class="work" id="enigmatic-events">
+  <div class="work-head">
+    <div><span class="yr">2021</span><h2>Enigmatic Events</h2></div>
+    <div><p>A small collection of works exploring a new aesthetic inspired by surrealism and metaphysics. Through the latest technology, the works bring these styles into a harmonious coexistence, playing with the boundaries between reality and 3D alteration: a review of how to approach reality, toward the expression of feeling, sensitivity, emotion and insight.</p></div>
+  </div>
+  <div class="pieces-v"><figure class="piece"><video controls playsinline preload="none" poster="img/p_enigmatic-events_01.jpg" src="video/enigmatic-events_01.mp4"></video><figcaption><h3>"Enigmatic Event I"</h3><p>The relationship between reality and 3D design has been completely altered.</p></figcaption></figure><figure class="piece"><video controls playsinline preload="none" poster="img/p_enigmatic-events_03.jpg" src="video/enigmatic-events_03.mp4"></video><figcaption><h3>"Enigmatic Event III"</h3><p>A total and global review of how to approach the real.</p></figcaption></figure><figure class="piece"><video controls playsinline preload="none" poster="img/p_enigmatic-events_05.jpg" src="video/enigmatic-events_05.mp4"></video><figcaption><h3>"Enigmatic Event V"</h3><p>A decisive search for a mysterious realism.</p></figcaption></figure></div>
+</article>
+
+<article class="work" id="prequel">
+  <div class="work-head">
+    <div><span class="yr">2021</span><h2>Enjoy What's Left [The Prequel]</h2></div>
+    <div><p>At the end of time, with a small beam of sunlight, an arrival looms. We witness the last moments in a great desert from dusk till dawn. Amidst the storms of our minds, we fall into spiral patterns, while oracles shape us with their hands among clay. Magnetic fields erode the horizon as the future knocks at our door. Another train derails and we're reminded there's no coming back. A toast to the end of time, a ticket to a boundless journey.</p></div>
+  </div>
+  <div class="chapters"><figure class="piece"><video controls playsinline preload="none" poster="img/p_ewl-prequel_01.jpg" src="video/ewl-prequel_01.mp4"></video><figcaption><h3>Chapter 1 · Arrival</h3><p>An arrival. Heard from the distance. Humanity was changed forever. Falling down into spiral patterns. Looking up through the water of a river stream. Deaf, blind and without reservations. Plastered into an old rug. A window, a backroom to the end of time. We look up in search of the sun. A thousand masters with dark chins. We are awakened and returned to the stars. Hoping not to be forgotten.</p></figcaption></figure><figure class="piece"><video controls playsinline preload="none" poster="img/p_ewl-prequel_02.jpg" src="video/ewl-prequel_02.mp4"></video><figcaption><h3>Chapter 2 · Glory to Ashes</h3><p>From the caves of mars into a straight line of opposite polarities. Emptiness turned into delicate breaths. The sun is still imploding. No wind blows while we put ourselves to sleep. We spit on pearls to make space for the echos. They surround us. The spheres, they dream for us. Grass surrounds us, grows over our faces. A black sky over a great desert.</p></figcaption></figure><figure class="piece"><video controls playsinline preload="none" poster="img/p_ewl-prequel_03.jpg" src="video/ewl-prequel_03.mp4"></video><figcaption><h3>Chapter 3 · Edge of Dawn</h3><p>Pastoral scene from our teenage dreams. A new moon on our bitter land. Strange pause, to think things over. What we knew then, contained in a clear shell. A constant reminder of how we were speaking. Of our mundane belongings. Hollow rocks and magnetic fields erode the horizon. With its many different faces. Destined to collide while being put to rest.</p></figcaption></figure></div>
+</article>
+
+<article class="work" id="ruins">
+  <div class="work-head">
+    <div><span class="yr">2020</span><h2>Ruins</h2></div>
+    <div><p>Ruins representing survival, depicted through bodies, moons, cities, sculptures, and machines. The blackness of ash imbues the spaces with melancholy and enigma, creating distance and silence. Classical sculptures come to life and engage with the world beyond their surfaces, reflecting an expansion of our own reality. As an Argentine artist and member of CryptoArg, Okytomo sees his creative process as a necessary exploration of materials and personal innovation, fueled by his fascination with technology.</p></div>
+  </div>
+  <div class="pieces-v"><figure class="piece"><video controls playsinline preload="none" poster="img/p_ruins_01.jpg" src="video/ruins_01.mp4"></video><figcaption><h3>"Melancolía"</h3></figcaption></figure><figure class="piece"><video controls playsinline preload="none" poster="img/p_ruins_02.jpg" src="video/ruins_02.mp4"></video><figcaption><h3>"Madre"</h3></figcaption></figure><figure class="piece"><video controls playsinline preload="none" poster="img/p_ruins_03.jpg" src="video/ruins_03.mp4"></video><figcaption><h3>"Pensamientos del oráculo"</h3></figcaption></figure><figure class="piece"><video controls playsinline preload="none" poster="img/p_ruins_04.jpg" src="video/ruins_04.mp4"></video><figcaption><h3>"Incertidumbre"</h3></figcaption></figure><figure class="piece"><video controls playsinline preload="none" poster="img/p_ruins_05.jpg" src="video/ruins_05.mp4"></video><figcaption><h3>"Quarantine"</h3></figcaption></figure></div>
+</article>
+
+<section id="exhibitions" style="padding-top:72px">
+  <h2 class="label"><span>Exhibitions</span><span>Rome · New York · Buenos Aires · Metaverse</span></h2>
+</section>
+
+<article class="work" id="not-built-in-a-day">
+  <div class="work-head">
+    <div><span class="yr">2023</span><h2>Not Built in a Day</h2><span class="venue">Maison Bosi, Rome</span></div>
+    <div><p>Maison Bosi and Cinello's first exhibition of digital art, a historic connection between past and future. Curated by Serena Tabacchi, it invites reflection on the meaning of eternity and our innate tension towards the future. Like new digital technologies introduce the immutability and certified uniqueness of a file, the history of Rome brings us back to a collective feeling of continuous change, brick by brick, leading to a construction of data and bytes that form the basis for possible future scenarios.</p>
+    <p><a class="watch" href="https://www.youtube.com/watch?v=1SWuKs4yMGA" target="_blank" rel="noopener">Watch on YouTube ↗</a></p></div>
+  </div>
+  <div class="gallery">
+    <img class="wide" src="img/not-built-in-a-day_02.jpg" alt="Not Built in a Day, installation view">
+    <img src="img/not-built-in-a-day_03.jpg" alt="Not Built in a Day"><img src="img/not-built-in-a-day_04.jpg" alt="Not Built in a Day">
+  </div>
+</article>
+
+<article class="work" id="riesgo-pais">
+  <div class="work-head">
+    <div><span class="yr">2022</span><h2>Riesgo País</h2><span class="venue">Newton Gallery, New York · also Mexico City and Buenos Aires</span></div>
+    <div><p>In the land of risk, those with nothing strive for something. All is intensely enjoyed and greatly suffered, as nothing is guaranteed. Memories of scarcity build a monumental and fragmented image with available pieces. There are also many ghosts fed with fear, hate, and grief, along with romance. The exhibition explores the relationship between reality and its fictionalized construction, reflecting on the burden imposed by the media. The pieces are on the verge of the broken, losing their form to inhabit the ruins. An economic skeleton that sustains and shapes these narratives is always present.</p></div>
+  </div>
+  <div class="gallery">
+    <img class="wide" src="img/riesgo-pais_01.jpg" alt="Riesgo País">
+    <img src="img/riesgo-pais_02.jpg" alt="Riesgo País"><img src="img/riesgo-pais_03.jpg" alt="Riesgo País">
+    <img src="img/riesgo-pais_05.jpg" alt="Riesgo País"><img src="img/riesgo-pais_06.jpg" alt="Riesgo País">
+    <img src="img/riesgo-pais_07.jpg" alt="Riesgo País"><img src="img/riesgo-pais_08.jpg" alt="Riesgo País">
+  </div>
+</article>
+
+<article class="work" id="no-existe-tierra">
+  <div class="work-head">
+    <div><span class="yr">2021</span><h2>No existe tierra más allá</h2><span class="venue">CheLA, Buenos Aires</span></div>
+    <div><p>The first in-person exhibition of CryptoArg, with 29 works curated by Merlina Rañi and produced by CryptoArg, Carla Chmiel, Lucía López and Sandro. Installations, audiovisual, digital and plastic pieces expressing degrees of connection to matter: the fantasy of immaterial existence, the body, environment and pleasure, memory, folklore and myths. The title alludes to the cyclical connection we keep with the world's image and its borders.</p></div>
+  </div>
+  <div class="gallery">
+    <video class="wide" controls playsinline preload="none" poster="img/p_no-existe-tierra_video.jpg" src="video/no-existe-tierra_video.mp4"></video>
+    <img src="img/no-existe-tierra_02.jpg" alt="No existe tierra más allá"><img src="img/no-existe-tierra_03.jpg" alt="No existe tierra más allá">
+    <img src="img/no-existe-tierra_01.jpg" alt="No existe tierra más allá"><img src="img/no-existe-tierra_04.jpg" alt="No existe tierra más allá">
+  </div>
+</article>
+
+<article class="work" id="caos">
+  <div class="work-head">
+    <div><span class="yr">2021</span><h2>CAOS</h2><span class="venue">Cryptovoxels, Metaverse</span></div>
+    <div><p>The first exhibition of the Argentine collective CryptoArg, whose members expressed the concept of chaos through various means. It was presented in the metaverse Cryptovoxels, where it can still be found.</p></div>
+  </div>
+  <div class="gallery">
+    <video class="wide" controls playsinline preload="none" poster="img/p_caos_video.jpg" src="video/caos_video.mp4"></video>
+    <img class="wide" src="img/caos_02.jpg" alt="CAOS">
+    <img src="img/caos_01.jpg" alt="CAOS"><img src="img/caos_04.jpg" alt="CAOS">
+    <img src="img/caos_03.jpg" alt="CAOS"><img src="img/caos_05.jpg" alt="CAOS">
+  </div>
+</article>
+
+<section class="about" id="about">
+  <img src="img/about_avatar.gif" alt="Okytomo" style="max-width:360px;width:100%">
+  <div>
+    <h2 class="label"><span>About</span><span>Okytomo</span></h2>
+    <p>With a background in photography, filmmaking and digital media, Okytomo's work invites us to explore fantastical worlds derived from streams of thought, brought to life through mixed digital media.</p>
+    <p>Influenced by the surreal and sci-fi genres, it guides us through a new virtual landscape, a form of reality where anything is within the realm of possibility.</p>
+    <div class="contact" id="contact">
+      <h2 class="label" style="margin-top:24px"><span>Contact</span><span>Buenos Aires</span></h2>
+      <span class="mail">okytomo@gmail.com</span>
+      <a href="https://www.instagram.com/okytomo.eth/" target="_blank" rel="noopener">Instagram · @okytomo.eth ↗</a>
+      <a href="https://twitter.com/okytomo1" target="_blank" rel="noopener">X · @okytomo1 ↗</a>
+    </div>
+  </div>
+</section>
+</main>
+<footer><span>© Okytomo</span><span>Buenos Aires, AR</span></footer>
+
+</body></html>
