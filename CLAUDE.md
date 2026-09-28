@@ -5,6 +5,7 @@ Sitio estático (HTML + CSS, sin build) del portfolio de artista de Okytomo (Oct
 ## Estructura
 - `site/index.html` — la web completa (una sola página: Artworks, Exhibitions, About, Contact).
 - `site/img/` — imágenes optimizadas para web (máx 1800px, JPG q82; GIFs originales).
+- Cada `article.work` se pliega por JS (script al final de `index.html`): muestra título, texto recortado, tira de miniaturas y botón "View all N …". Para sumar un proyecto nuevo basta copiar la estructura de un `article.work` existente; el plegado se arma solo.
 - `site/video/` — los 25 videos recuperados de Adobe (Ruins, Enigmatic Events, EWL [The Prequel], Virtual Landscapes, capítulos de Enjoy What's Left, CAOS, No existe tierra más allá). Posters web en `site/img/p_<nombre>.jpg`.
 - `originales/` — imágenes tal como se bajaron de Adobe Portfolio, por proyecto; `originales/videos-posters/` tiene los stills de video a resolución completa.
 - `.claude/serve.ps1` — servidor estático local (http://localhost:8080) para previsualizar; no hay Python/Node en esta máquina.
